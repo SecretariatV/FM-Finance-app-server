@@ -30,6 +30,4 @@ router.post("/register", authController.register);
 
 router.get("/logout", authController.logout);
 
-router.get("/confirm/:token", authController.confirm);
-
 export default router;

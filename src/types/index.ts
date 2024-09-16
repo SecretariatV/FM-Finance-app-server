@@ -5,7 +5,4 @@ export interface IUser extends Document {
   email: string;
   password: string;
   googleId?: string;
-  confirmationToken: string | undefined;
-  isVerifed: boolean;
-  role: number;
 }

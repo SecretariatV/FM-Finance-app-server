@@ -36,16 +36,11 @@ passport.use(
             );
           }
 
-          const confirmationToken = crypto.randomBytes(32).toString("hex");
-
           user = await User.create({
             googleId: profile.id,
             username: profile.displayName,
             email: email,
-            confirmationToken,
           });
-
-          profile.confirmToken = confirmationToken;
         }
         done(null, user);
       } catch (error) {

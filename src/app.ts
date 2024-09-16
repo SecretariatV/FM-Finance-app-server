@@ -43,20 +43,11 @@ app.use("/auth", authRoutes);
 app.get("/", (req, res) => res.send("Home Page"));
 
 app.get("/confirm", (req, res) => {
-  const user = req.user as any;
   if (!req.isAuthenticated()) {
     return res.redirect("http://localhost:3000/register");
   }
 
-  const confirmationToken = user.confirmationToken;
-  if (confirmationToken) {
-    const confirmationUrl = `http://localhost:3000/confirm?token=${encodeURIComponent(
-      confirmationToken
-    )}`;
-    return res.redirect(confirmationUrl);
-  } else {
-    return res.redirect("http://localhost:3000");
-  }
+  return res.redirect("http://localhost:3000");
 });
 
 app.get("/register", (req, res) => {
